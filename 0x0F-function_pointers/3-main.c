@@ -1,47 +1,40 @@
-#include <stdlib.h>
-#include <stdio.h> 
 #include "3-calc.h"
 
 /**
- * main - program that performs simple operations
- * @argc: number of arguments
- * @argv: array of arguments
- * Return: Always 0 (Success)
+ * main - arguments for struct
+ * @argc: numbers arguments
+ * @argv: string arguments
+ * Return: 0.
  */
 
 int main(int argc, char *argv[])
 {
-	int arg1, arg2, result;
-	char o;
-	int (*func)(int, int);
+	int i, j;
+	int (*d)(int, int);
 
 	if (argc != 4)
 	{
-		printf("error\n"0);
+		printf("Error\n");
 		exit(98);
 	}
-
-	arg1 = atoi(argv[1]);
-	arg2 = atoi(argv[3]);
-
-	func = get_op_func(argv[2]);
-
-	if (!func)
+	if (argv[2][1] != '\0')
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	o = *argv[2];
+	d = get_op_func(argv[2]);
+		if (d == NULL)
+		{
+			printf("Error\n");
+			exit(99);
+		}
 
-	if ((o == '/' || o == '%') && arg2 == 0)
-	{
-		printf("Error\n");
-		exit(100);
-	}
 
-	result = func(arg1, arg2);
+	i = atoi(argv[1]);
+	j = atoi(argv[3]);
 
-	printf("%d\n", result);
+	printf("%d\n", d(i, j));
+
 	return (0);
 }
