@@ -1,12 +1,12 @@
-#ifndef CALC_H
-#define CALC_H
+#ifndef CALCULATOR_H
+#define CALCULATOR_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 /**
- * struct op - Struct op
+ * struct op - Struct
  *
  * @op: The operator
  * @f: The function associated
